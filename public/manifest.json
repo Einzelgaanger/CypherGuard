@@ -1,0 +1,19 @@
+{
+  "name": "CypherSec Check-In",
+  "short_name": "CypherSec",
+  "description": "Digital visitor management system for gated estates",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["security", "business", "productivity"],
+  "lang": "en"
+} 
