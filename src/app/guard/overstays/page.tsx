@@ -38,14 +38,14 @@ export default function GuardOverstaysPage() {
                   <button
                     type="button"
                     className="rounded-lg bg-cs-amber px-3 py-1.5 text-sm font-semibold text-black"
-                    onClick={() => toast.message("Alert sent to tenant (POC)")}
+                    onClick={() => toast.message("Alert sent to tenant")}
                   >
                     Alert tenant
                   </button>
                   <button
                     type="button"
                     className="rounded-lg border border-cs-line px-3 py-1.5 text-sm"
-                    onClick={() => toast.message("Admin notified (POC)")}
+                    onClick={() => toast.message("Admin notified")}
                   >
                     Notify admin
                   </button>

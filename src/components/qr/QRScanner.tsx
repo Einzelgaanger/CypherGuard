@@ -371,22 +371,21 @@ export function QRScanner({ onScanSuccess, onCancel, mode = 'checkin' }: QRScann
                 </Button>
                 <Button 
                   onClick={() => {
-                    // Demo QR scan for testing
-                    const demoResult = {
+                    const sampleResult = {
                       type: 'invitation',
-                      token: 'demo-token-123',
-                      guestName: 'Demo Guest',
+                      token: 'sample-invite-123',
+                      guestName: 'James Kariuki',
                       valid: true,
-                      message: 'Demo QR code scanned successfully'
+                      message: 'Invitation recognised'
                     };
-                    setScanResult(demoResult);
+                    setScanResult(sampleResult);
                   }}
                   variant="outline"
                   className="touch-target px-6 py-3"
                   size="lg"
                 >
                   <QrCode className="w-5 h-5 mr-2" />
-                  Demo Scan
+                  Use sample code
                 </Button>
               </div>
             </div>

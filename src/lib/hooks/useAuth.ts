@@ -23,12 +23,12 @@ export const useAuth = () => {
 
   const login = async (_email: string, _password: string) => {
     throw new Error(
-      "Server login is disabled in this static demo. Use the home page or /login to enter the mock POC.",
+      "Password login is not enabled. Use the home page or sign in to select your role.",
     );
   };
 
   const requestOTP = async (_phone: string, _purpose: string): Promise<void> => {
-    throw new Error("Phone OTP is not available in this static demo.");
+    throw new Error("Phone OTP is not available in this build.");
   };
 
   const logout = useCallback(async () => {

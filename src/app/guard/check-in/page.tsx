@@ -73,7 +73,6 @@ function GuardCheckInInner() {
       phone: matched.phone ?? "+254700000000",
       unit: matched.unit,
       tenantName: "Resident",
-      photoUrl: `https://i.pravatar.cc/80?u=${encodeURIComponent(matched.name)}`,
       checkedInAt: Date.now(),
       expectedOutAt: Date.now() + 3 * 3600000,
       purpose: matched.purpose,
@@ -97,7 +96,6 @@ function GuardCheckInInner() {
       phone: walk.phone,
       unit: walk.unit,
       tenantName: "Resident",
-      photoUrl: `https://i.pravatar.cc/80?u=${encodeURIComponent(walk.name)}`,
       checkedInAt: Date.now(),
       expectedOutAt: Date.now() + 3 * 3600000,
       purpose: walk.purpose,
@@ -105,7 +103,7 @@ function GuardCheckInInner() {
     };
     checkInVisit(visit);
     toast.success(`✓ ${walk.name} checked in to Unit ${walk.unit}`);
-    toast.message("SMS sent (POC console)", { description: "Tenant notified" });
+    toast.message("SMS sent", { description: "Tenant notified" });
     setPass(visit);
   };
 
@@ -117,7 +115,7 @@ function GuardCheckInInner() {
           type="button"
           className={cn(
             "flex-1 rounded-full py-2 text-sm font-semibold",
-            tab === "invite" ? "bg-cs-accent text-black" : "text-cs-text-secondary",
+            tab === "invite" ? "bg-cs-accent text-white" : "text-cs-text-secondary",
           )}
           onClick={() => setTab("invite")}
         >
@@ -127,7 +125,7 @@ function GuardCheckInInner() {
           type="button"
           className={cn(
             "flex-1 rounded-full py-2 text-sm font-semibold",
-            tab === "walkin" ? "bg-cs-accent text-black" : "text-cs-text-secondary",
+            tab === "walkin" ? "bg-cs-accent text-white" : "text-cs-text-secondary",
           )}
           onClick={() => setTab("walkin")}
         >
@@ -143,7 +141,7 @@ function GuardCheckInInner() {
                 <p className="text-sm text-cs-text-secondary">Point camera at visitor QR (opens scanner)</p>
                 <button
                   type="button"
-                  className="mt-4 rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
+                  className="mt-4 rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
                   onClick={() => setShowScanner(true)}
                 >
                   Open camera scanner
@@ -162,7 +160,7 @@ function GuardCheckInInner() {
                   />
                   <button
                     type="button"
-                    className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
+                    className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
                     onClick={() => lookup(tokenInput)}
                   >
                     Look up
@@ -203,7 +201,7 @@ function GuardCheckInInner() {
               <button
                 type="button"
                 disabled={!idVerified}
-                className="mt-4 w-full rounded-lg bg-cs-accent py-2.5 text-sm font-semibold text-black disabled:opacity-40"
+                className="mt-4 w-full rounded-lg bg-cs-accent py-2.5 text-sm font-semibold text-white disabled:opacity-40"
                 onClick={confirmPreReg}
               >
                 Confirm check-in
@@ -250,7 +248,7 @@ function GuardCheckInInner() {
           </select>
           <button
             type="button"
-            className="md:col-span-2 mt-2 w-full rounded-lg bg-cs-accent py-3 text-sm font-semibold text-black"
+            className="md:col-span-2 mt-2 w-full rounded-lg bg-cs-accent py-3 text-sm font-semibold text-white"
             onClick={submitWalkIn}
           >
             Check in visitor

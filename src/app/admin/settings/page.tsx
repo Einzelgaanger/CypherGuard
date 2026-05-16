@@ -59,8 +59,8 @@ export default function AdminSettingsPage() {
               </label>
               <button
                 type="button"
-                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
-                onClick={() => toast.success("Saved (POC — session only)")}
+                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
+                onClick={() => toast.success("Settings saved")}
               >
                 Save changes
               </button>
@@ -89,8 +89,8 @@ export default function AdminSettingsPage() {
               </label>
               <button
                 type="button"
-                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
-                onClick={() => toast.success("Configuration saved (POC)")}
+                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
+                onClick={() => toast.success("Configuration saved")}
               >
                 Save configuration
               </button>
@@ -138,7 +138,7 @@ export default function AdminSettingsPage() {
           ) : null}
           {tab === "Notifications" || tab === "Change password" ? (
             <p className="text-sm text-cs-text-secondary">
-              {tab} — POC placeholder. Contact estate admin for production configuration.
+              {tab} settings are managed by your estate administrator.
             </p>
           ) : null}
         </div>

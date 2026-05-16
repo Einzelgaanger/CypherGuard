@@ -22,7 +22,7 @@ export default function TenantProfilePage() {
           <p className="mt-1 font-mono text-xs">{user?.email}</p>
         </div>
         <p className="text-xs text-cs-text-muted">
-          Change password and notification preferences — POC placeholder (contact admin).
+          Change password and notification preferences — contact your estate admin.
         </p>
       </div>
     </>

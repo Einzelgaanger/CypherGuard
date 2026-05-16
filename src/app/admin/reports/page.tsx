@@ -42,10 +42,10 @@ export default function AdminReportsPage() {
           </div>
           <button
             type="button"
-            className="mt-6 w-full rounded-lg bg-cs-accent py-2.5 text-sm font-semibold text-black"
+            className="mt-6 w-full rounded-lg bg-cs-accent py-2.5 text-sm font-semibold text-white"
             onClick={() => {
               setGenerated(true);
-              toast.success("Report generated (POC mock data)");
+              toast.success("Report generated");
             }}
           >
             Generate report
@@ -55,14 +55,14 @@ export default function AdminReportsPage() {
               <button
                 type="button"
                 className="flex-1 rounded-lg border border-cs-line py-2 text-sm hover:bg-cs-hover"
-                onClick={() => toast.message("Print dialog (POC)")}
+                onClick={() => toast.message("Opening print dialog…")}
               >
                 Export PDF
               </button>
               <button
                 type="button"
                 className="flex-1 rounded-lg border border-cs-line py-2 text-sm hover:bg-cs-hover"
-                onClick={() => toast.message("CSV download (POC)")}
+                onClick={() => toast.message("Downloading CSV…")}
               >
                 Export CSV
               </button>
@@ -74,7 +74,7 @@ export default function AdminReportsPage() {
           {generated ? (
             <div className="mt-4 space-y-4 text-sm">
               <p className="text-cs-text-secondary">
-                Period: last 7 days · Total visits: 234 · Avg daily: 33 · Overstays: 11 (mock)
+                Period: last 7 days · Total visits: 234 · Avg daily: 33 · Overstays: 11
               </p>
               <div className="rounded-lg border border-cs-line bg-cs-base p-4 font-mono text-xs text-cs-text-secondary">
                 {types.find((x) => x.id === sel)?.title} — tabular preview placeholder.

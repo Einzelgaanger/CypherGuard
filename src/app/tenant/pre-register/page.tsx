@@ -101,7 +101,7 @@ export default function TenantPreRegisterPage() {
           </button>
           <button
             type="button"
-            className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
+            className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
             onClick={() => {
               setDone(null);
               setStep(1);
@@ -124,7 +124,7 @@ export default function TenantPreRegisterPage() {
               <div
                 className={cn(
                   "flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold",
-                  step >= s ? "bg-cs-accent text-black" : "bg-cs-elevated text-cs-text-muted",
+                  step >= s ? "bg-cs-accent text-white" : "bg-cs-elevated text-cs-text-muted",
                 )}
               >
                 {step > s ? "✓" : s}
@@ -140,7 +140,7 @@ export default function TenantPreRegisterPage() {
             <Field label="Phone" value={form.phone} onChange={(v) => setForm((f) => ({ ...f, phone: v }))} />
             <Field label="ID number (optional)" value={form.idNo} onChange={(v) => setForm((f) => ({ ...f, idNo: v }))} />
             <Field label="Vehicle (optional)" value={form.vehicle} onChange={(v) => setForm((f) => ({ ...f, vehicle: v }))} />
-            <button type="button" className="mt-4 w-full rounded-lg bg-cs-accent py-2.5 font-semibold text-black" onClick={() => setStep(2)}>
+            <button type="button" className="mt-4 w-full rounded-lg bg-cs-accent py-2.5 font-semibold text-white" onClick={() => setStep(2)}>
               Continue
             </button>
           </div>
@@ -180,7 +180,7 @@ export default function TenantPreRegisterPage() {
               <button type="button" className="flex-1 rounded-lg border border-cs-line py-2" onClick={() => setStep(1)}>
                 Back
               </button>
-              <button type="button" className="flex-1 rounded-lg bg-cs-accent py-2 font-semibold text-black" onClick={() => setStep(3)}>
+              <button type="button" className="flex-1 rounded-lg bg-cs-accent py-2 font-semibold text-white" onClick={() => setStep(3)}>
                 Continue
               </button>
             </div>
@@ -205,7 +205,7 @@ export default function TenantPreRegisterPage() {
               <button type="button" className="flex-1 rounded-lg border border-cs-line py-2" onClick={() => setStep(2)}>
                 Back
               </button>
-              <button type="button" className="flex-1 rounded-lg bg-cs-accent py-2 font-semibold text-black" onClick={submit}>
+              <button type="button" className="flex-1 rounded-lg bg-cs-accent py-2 font-semibold text-white" onClick={submit}>
                 Confirm &amp; generate invite
               </button>
             </div>

@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useSyncExternalStore,
   type ReactNode,
@@ -17,6 +18,16 @@ import {
   notifyPocSessionChanged,
   writePocSessionToStorage,
 } from "./poc-session-storage";
+
+const clearInvalidStoredSession = () => {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem(POC_SESSION_STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+  notifyPocSessionChanged();
+};
 
 type PocAuthValue = {
   user: SessionUser | null;
@@ -70,6 +81,12 @@ export function PocAuthProvider({ children }: { children: ReactNode }) {
   );
 
   const user = useMemo(() => parseUserFromRaw(rawSession), [rawSession]);
+
+  useEffect(() => {
+    if (!rawSession) return;
+    if (parseUserFromRaw(rawSession)) return;
+    clearInvalidStoredSession();
+  }, [rawSession]);
 
   const refresh = useCallback(() => {
     notifyPocSessionChanged();

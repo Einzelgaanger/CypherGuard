@@ -37,9 +37,13 @@ export const readPocSessionFromStorage = (): SessionUser | null => {
     if (!raw) return null;
     const parsed = JSON.parse(raw) as SessionUser;
     const role = parsed?.role;
-    if (!role || !SESSION_BY_ROLE[role]) return null;
+    if (!role || !SESSION_BY_ROLE[role]) {
+      localStorage.removeItem(POC_SESSION_STORAGE_KEY);
+      return null;
+    }
     return { ...SESSION_BY_ROLE[role] };
   } catch {
+    localStorage.removeItem(POC_SESSION_STORAGE_KEY);
     return null;
   }
 };

@@ -12,7 +12,7 @@ export default function GuardOnSitePage() {
     <>
       <PocPageHeader title="On-site visitors" />
       <p className="mb-4 text-sm text-cs-text-secondary">
-        {activeVisits.length} visitors currently on-site (POC)
+        {activeVisits.length} visitors currently on-site
       </p>
       <div className="overflow-hidden rounded-xl border border-cs-line bg-cs-surface">
         <table className="w-full text-left text-sm">

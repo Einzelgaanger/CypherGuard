@@ -33,7 +33,7 @@ export default function VisitorPortalPage() {
     <div className="fixed inset-0 flex flex-col bg-cs-base text-cs-text-primary homestead-pattern">
       <header className="relative z-10 flex shrink-0 items-center justify-between border-b border-cs-line bg-cs-surface/90 px-4 py-3 shadow-sm backdrop-blur-sm">
         <div className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-cs-accent-pale text-cs-accent">
             <Leaf className="h-4 w-4" aria-hidden />
           </span>
           <div className="min-w-0">
@@ -84,7 +84,7 @@ export default function VisitorPortalPage() {
             </button>
             <button
               type="button"
-              className="rounded-2xl border border-emerald-200 bg-emerald-50/80 py-5 text-lg font-semibold text-emerald-950 touch-target hover:bg-emerald-100"
+              className="rounded-2xl border border-cs-line bg-cs-accent-pale py-5 text-lg font-semibold text-cs-accent touch-target hover:bg-cs-hover"
               onClick={() => {
                 setMode("walkin");
                 setStep("form");
@@ -166,7 +166,7 @@ export default function VisitorPortalPage() {
         {step === "photo" ? (
           <div className="max-w-lg text-center">
             <p className="font-display text-2xl font-bold text-cs-text-primary">Quick photo</p>
-            <p className="mt-2 text-cs-text-secondary">Demo: friendly placeholder snapshot</p>
+            <p className="mt-2 text-cs-text-secondary">A quick photo helps security recognise you at the gate.</p>
             <div className="mx-auto mt-6 flex h-48 w-48 max-w-[90vw] items-center justify-center rounded-3xl border-2 border-dashed border-cs-accent/40 bg-cs-elevated text-sm text-cs-text-muted shadow-inner">
               Your photo area
             </div>
@@ -175,7 +175,7 @@ export default function VisitorPortalPage() {
               className="mt-8 w-full max-w-md rounded-2xl bg-cs-accent py-4 font-semibold text-white touch-target hover:brightness-105"
               onClick={() => setStep("confirm")}
             >
-              Use placeholder photo
+              Continue with photo
             </button>
           </div>
         ) : null}
@@ -186,7 +186,7 @@ export default function VisitorPortalPage() {
             <p className="mt-4 text-base">Please wait by the gate — a host or guard will confirm.</p>
             <button
               type="button"
-              className="mt-10 w-full max-w-md rounded-2xl bg-emerald-700 py-4 font-semibold text-white touch-target hover:bg-emerald-800"
+              className="cs-btn-accent mt-10 w-full max-w-md rounded-2xl py-4 touch-target"
               onClick={() => {
                 setPassId(`KIOSK-${Date.now()}`);
                 setStep("pass");

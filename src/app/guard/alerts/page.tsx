@@ -33,7 +33,7 @@ export default function GuardAlertsPage() {
         className="mt-8 w-full rounded-xl border-2 border-cs-red/40 bg-cs-red/10 py-4 text-sm font-bold text-cs-red"
         onClick={() => {
           broadcastEmergency();
-          toast.error("Emergency alert (POC)");
+          toast.error("Emergency alert sent");
         }}
       >
         Emergency alert

@@ -50,7 +50,7 @@ export default function TenantVisitorsPage() {
                     className="text-cs-red hover:underline"
                     onClick={() => {
                       revokeInvite(i.id);
-                      toast.message("Invite revoked (POC)");
+                      toast.message("Invite revoked");
                     }}
                   >
                     Revoke

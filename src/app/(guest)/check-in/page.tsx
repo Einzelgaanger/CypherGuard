@@ -4,7 +4,7 @@ export default function GuestCheckInPage() {
   return (
     <OfflineDemoNotice
       title="Guest check-in"
-      description="Guest registration against a live backend is disabled. Try /visitor-portal or the guard POC at /guard for the mock flows."
+      description="Visitors can use the welcome kiosk at /visitor-portal. Guards can check guests in from the gate desk."
     />
   );
 }

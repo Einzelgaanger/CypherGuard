@@ -7,7 +7,7 @@ export default function AdminGuardsPage() {
   const { guards } = usePocStore();
   return (
     <>
-      <PocPageHeader title="Guards" subtitle="Shift roster (POC mock)" />
+      <PocPageHeader title="Guards" subtitle="Shift roster and gate assignments" />
       <div className="overflow-hidden rounded-xl border border-cs-line bg-cs-surface">
         <table className="w-full text-left text-sm">
           <thead className="bg-cs-elevated text-[11px] font-semibold uppercase text-cs-text-secondary">
@@ -43,7 +43,7 @@ export default function AdminGuardsPage() {
         </table>
       </div>
       <div className="mt-8 rounded-xl border border-dashed border-cs-line bg-cs-surface/50 p-8 text-center text-sm text-cs-text-secondary">
-        Weekly shift scheduler UI (POC placeholder — no backend scheduling)
+        Weekly shift scheduler — contact estate admin to configure rotations.
       </div>
     </>
   );

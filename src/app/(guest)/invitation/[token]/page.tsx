@@ -1,10 +1,10 @@
 import { OfflineDemoNotice } from "@/components/demo/OfflineDemoNotice";
 
-export default function InvitationTokenPage() {
+export default function GuestInvitationPage() {
   return (
     <OfflineDemoNotice
       title="Guest invitation"
-      description="Invitation links that load live guest data are disabled in the static demo. Use /invite/[token] for the POC invite preview or /visitor-portal for the kiosk mock."
+      description="Open your personal invite link from your host, or visit the visitor welcome screen if you are arriving today."
     />
   );
 }

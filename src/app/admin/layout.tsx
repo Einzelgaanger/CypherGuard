@@ -27,7 +27,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <PocAppShell
       roleBadge="Community office"
-      badgeClassName="bg-sky-100 text-sky-900 ring-1 ring-sky-200/90"
+      badgeClassName="bg-cs-accent-dim text-cs-accent ring-1 ring-cs-line"
       nav={nav}
     >
       {children}

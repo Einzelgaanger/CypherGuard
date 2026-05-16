@@ -26,7 +26,7 @@ export default function GuardLayout({ children }: { children: React.ReactNode })
   return (
     <PocAppShell
       roleBadge="Gate & lobby"
-      badgeClassName="bg-indigo-100 text-indigo-900 ring-1 ring-indigo-200/90"
+      badgeClassName="bg-cs-accent-dim text-cs-accent ring-1 ring-cs-line"
       nav={nav}
     >
       {children}

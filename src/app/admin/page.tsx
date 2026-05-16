@@ -8,6 +8,7 @@ import { weeklyVisitorVolume } from "@/poc/initial-mock";
 import { usePocStore } from "@/poc/poc-store";
 import { PocPageHeader } from "@/poc/ui/poc-app-shell";
 import { PocStatCard } from "@/poc/ui/poc-stat-card";
+import { VisitorAvatar } from "@/poc/ui/visitor-avatar";
 import type { AlertItem } from "@/poc/types";
 
 const ChartBarSkeleton = () => (
@@ -32,7 +33,7 @@ const OccupancyDonut = dynamic(
 const alertToneClasses = (severity: AlertItem["severity"]) => {
   if (severity === "critical") return "border-l-4 border-cs-red bg-red-50/90";
   if (severity === "warning") return "border-l-4 border-amber-400 bg-amber-50/90";
-  return "border-l-4 border-cs-blue bg-sky-50/90";
+  return "border-l-4 border-cs-blue bg-cs-accent-dim";
 };
 
 export default function AdminDashboardPage() {
@@ -40,7 +41,8 @@ export default function AdminDashboardPage() {
   const overstays = activeVisits.filter((v) => v.expectedOutAt < Date.now()).length;
   const onSite = activeVisits.length;
   const uniqueUnits = new Set(activeVisits.map((v) => v.unit)).size;
-  const topAlerts = alerts.filter((a) => !a.read).slice(0, 5);
+  const topAlerts = alerts.filter((a) => !a.read).slice(0, 6);
+  const gatePreview = activeVisits.slice(0, 8);
   const todayVisitors = weeklyVisitorVolume[weeklyVisitorVolume.length - 1] ?? 0;
   const priorDay = weeklyVisitorVolume[weeklyVisitorVolume.length - 2] ?? todayVisitors;
   const dayTrend =
@@ -51,7 +53,7 @@ export default function AdminDashboardPage() {
       <PocPageHeader title="Neighbourhood pulse" />
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <PocStatCard
-          label="Visitors today (demo curve)"
+          label="Visitors today"
           value={todayVisitors}
           icon={Users}
           trend={dayTrend}
@@ -87,18 +89,12 @@ export default function AdminDashboardPage() {
           <section className="rounded-2xl border border-cs-line bg-cs-surface p-5 shadow-sm sm:p-6">
             <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="font-display text-lg font-semibold text-cs-text-primary">Who&apos;s at the gate</h2>
-              <span className="text-xs text-cs-text-muted">Live demo list</span>
+              <span className="text-xs text-cs-text-muted">Live · updates automatically</span>
             </div>
             <ul className="divide-y divide-cs-line">
-              {activeVisits.slice(0, 12).map((v) => (
+              {gatePreview.map((v) => (
                 <li key={v.id} className="flex items-center gap-3 py-3">
-                  <img
-                    src={v.photoUrl}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    className="h-10 w-10 shrink-0 rounded-full border border-cs-line object-cover"
-                  />
+                  <VisitorAvatar name={v.name} className="h-10 w-10 text-xs" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">{v.name}</p>
                     <p className="text-xs text-cs-text-muted">
@@ -154,7 +150,7 @@ export default function AdminDashboardPage() {
           <section className="rounded-2xl border border-cs-line bg-cs-surface p-5 shadow-sm sm:p-6">
             <h2 className="mb-2 font-display text-lg font-semibold text-cs-text-primary">Homes with guests</h2>
             <p className="mb-4 text-xs text-cs-text-secondary">
-              {uniqueUnits} of {estate.unitCount} households have someone visiting (illustrative)
+              {uniqueUnits} of {estate.unitCount} households have someone visiting
             </p>
             <OccupancyDonut activeUnits={uniqueUnits} totalUnits={estate.unitCount} />
           </section>
@@ -162,7 +158,7 @@ export default function AdminDashboardPage() {
           <section className="rounded-2xl border border-cs-line bg-cs-surface p-5 shadow-sm sm:p-6">
             <h2 className="mb-4 font-display text-lg font-semibold text-cs-text-primary">Recent neighbourhood notes</h2>
             <ul className="space-y-2 text-sm">
-              {auditLog.slice(0, 14).map((e) => (
+              {auditLog.slice(0, 10).map((e) => (
                 <li key={e.id} className="flex gap-2 border-b border-cs-line/80 pb-2 last:border-0">
                   <span className="font-mono text-xs text-cs-text-muted">
                     {new Date(e.at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}

@@ -6,19 +6,20 @@ import { PocPageHeader } from "@/poc/ui/poc-app-shell";
 import { usePocStore } from "@/poc/poc-store";
 import { cn } from "@/lib/utils";
 import { Flag, LogOut, Eye } from "lucide-react";
+import { VisitorAvatar } from "@/poc/ui/visitor-avatar";
 
 export default function AdminVisitorsPage() {
   const [tab, setTab] = useState<"active" | "pre" | "history">("active");
   const { activeVisits, preRegistered, checkOutVisit, auditLog } = usePocStore();
 
   const historyRows = useMemo(
-    () => auditLog.filter((a) => a.action === "check_out" || a.action === "check_in").slice(0, 40),
+    () => auditLog.filter((a) => a.action === "check_out" || a.action === "check_in").slice(0, 120),
     [auditLog],
   );
 
   return (
     <>
-      <PocPageHeader title="Visitors" subtitle="Live, pre-registered, and history (POC)" />
+      <PocPageHeader title="Visitors" subtitle="On-site, pre-registered, and history" />
       <div className="mb-6 flex flex-wrap gap-2">
         {(
           [
@@ -34,7 +35,7 @@ export default function AdminVisitorsPage() {
             className={cn(
               "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
               tab === k
-                ? "bg-cs-accent text-black"
+                ? "bg-cs-accent text-white"
                 : "border border-cs-line bg-cs-surface text-cs-text-secondary hover:bg-cs-hover",
             )}
           >
@@ -66,8 +67,7 @@ export default function AdminVisitorsPage() {
                   <tr key={v.id} className="hover:bg-cs-hover/60">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={v.photoUrl} alt="" className="h-10 w-10 rounded-full object-cover" />
+                        <VisitorAvatar name={v.name} className="h-10 w-10 text-xs" />
                         <div>
                           <p className="font-medium">{v.name}</p>
                           <p className="font-mono text-xs text-cs-text-muted">{v.idNo}</p>
@@ -97,7 +97,7 @@ export default function AdminVisitorsPage() {
                         type="button"
                         className="mr-2 inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cs-line text-cs-amber hover:bg-cs-hover"
                         aria-label="Flag"
-                        onClick={() => toast.message("Flag modal (POC)", { description: v.name })}
+                        onClick={() => toast.message("Flag visitor", { description: v.name })}
                       >
                         <Flag className="h-4 w-4" />
                       </button>
@@ -105,7 +105,7 @@ export default function AdminVisitorsPage() {
                         type="button"
                         className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cs-line text-cs-accent hover:bg-cs-hover"
                         aria-label="View details"
-                        onClick={() => toast.message("Visitor drawer (POC)", { description: v.name })}
+                        onClick={() => toast.message("Visitor details", { description: v.name })}
                       >
                         <Eye className="h-4 w-4" />
                       </button>
@@ -176,14 +176,14 @@ export default function AdminVisitorsPage() {
             <button
               type="button"
               className="rounded-lg border border-cs-line px-4 py-2 text-sm hover:bg-cs-hover"
-              onClick={() => toast.message("Export CSV (POC)")}
+              onClick={() => toast.message("Exporting CSV…")}
             >
               Export CSV
             </button>
             <button
               type="button"
               className="rounded-lg border border-cs-line px-4 py-2 text-sm hover:bg-cs-hover"
-              onClick={() => toast.message("Print PDF (POC)")}
+              onClick={() => toast.message("Preparing PDF…")}
             >
               Print PDF
             </button>

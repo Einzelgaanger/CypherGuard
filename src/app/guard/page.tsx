@@ -13,7 +13,7 @@ export default function GuardDashboardPage() {
   const upcoming = [...preRegistered]
     .filter((p) => p.arrivalTo > Date.now())
     .sort((a, b) => a.arrivalFrom - b.arrivalFrom)
-    .slice(0, 6);
+    .slice(0, 12);
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function GuardDashboardPage() {
         <section className="rounded-xl border border-cs-line bg-cs-surface p-5 lg:col-span-3">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-display text-lg font-semibold">Upcoming arrivals</h2>
-            <Link href="/guard/check-in" className="rounded-lg bg-cs-accent px-3 py-1.5 text-sm font-semibold text-black">
+            <Link href="/guard/check-in" className="rounded-lg bg-cs-accent px-3 py-1.5 text-sm font-semibold text-white">
               Check in visitor
             </Link>
           </div>
@@ -99,7 +99,7 @@ export default function GuardDashboardPage() {
             type="button"
             onClick={() => {
               broadcastEmergency();
-              toast.error("Emergency broadcast (POC)");
+              toast.error("Emergency broadcast sent");
             }}
             className="w-full rounded-xl border-2 border-cs-red/40 bg-cs-red/10 p-5 text-center font-bold text-cs-red cs-pulse-red"
           >

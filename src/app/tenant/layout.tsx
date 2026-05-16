@@ -13,7 +13,7 @@ export default function TenantLayout({ children }: { children: React.ReactNode }
   return (
     <PocAppShell
       roleBadge="Your home"
-      badgeClassName="bg-cyan-100 text-cyan-950 ring-1 ring-cyan-200/90"
+      badgeClassName="bg-cs-accent-dim text-cs-accent ring-1 ring-cs-line"
       nav={nav}
     >
       {children}

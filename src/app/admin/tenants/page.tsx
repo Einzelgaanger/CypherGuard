@@ -41,7 +41,7 @@ export default function AdminTenantsPage() {
       visitorsThisMonth: 0,
     };
     addTenant(t);
-    toast.success("Tenant account created (POC)");
+    toast.success("Tenant account created");
     setOpen(false);
     setForm({ unit: "1A", name: "", email: "", phone: "" });
   };
@@ -53,7 +53,7 @@ export default function AdminTenantsPage() {
         <button
           type="button"
           onClick={handleOpen}
-          className="inline-flex items-center gap-2 rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black shadow-[0_4px_16px_rgba(0,212,255,0.25)] hover:brightness-110"
+          className="inline-flex items-center gap-2 rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(42,157,85,0.28)] hover:brightness-110"
         >
           <Plus className="h-4 w-4" />
           Create tenant
@@ -139,7 +139,7 @@ export default function AdminTenantsPage() {
                   Temporary password
                 </p>
                 <p className="mt-2 font-mono text-lg text-cs-accent">{pw}</p>
-                <p className="mt-2 text-xs text-cs-text-muted">Shown once (POC). Copy before closing.</p>
+                <p className="mt-2 text-xs text-cs-text-muted">Shown once. Copy before closing.</p>
               </div>
             </div>
             <div className="mt-8 flex justify-end gap-2">
@@ -152,7 +152,7 @@ export default function AdminTenantsPage() {
               </button>
               <button
                 type="button"
-                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-black"
+                className="rounded-lg bg-cs-accent px-4 py-2 text-sm font-semibold text-white"
                 onClick={handleCreate}
               >
                 Create tenant

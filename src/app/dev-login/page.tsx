@@ -4,7 +4,7 @@ export default function DevLoginPage() {
   return (
     <OfflineDemoNotice
       title="Developer login"
-      description="Database-backed dev login has been removed from this build. Use the home page or /login for instant mock role entry."
+      description="This sign-in path is not active. Use the home page or sign in to open the admin, guard, or resident experience."
     />
   );
 }

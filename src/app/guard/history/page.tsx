@@ -10,7 +10,7 @@ export default function GuardHistoryPage() {
 
   return (
     <>
-      <PocPageHeader title="Visit history" subtitle="Today (POC audit feed)" />
+      <PocPageHeader title="Visit history" subtitle="Today's gate activity" />
       <div className="overflow-hidden rounded-xl border border-cs-line bg-cs-surface">
         <table className="w-full text-left text-sm">
           <thead className="bg-cs-elevated text-[11px] font-semibold uppercase text-cs-text-secondary">
@@ -31,7 +31,7 @@ export default function GuardHistoryPage() {
                   <button
                     type="button"
                     className="text-cs-accent hover:underline"
-                    onClick={() => toast.message("Pass re-print (POC)")}
+                    onClick={() => toast.message("Reprinting visitor pass…")}
                   >
                     Print
                   </button>

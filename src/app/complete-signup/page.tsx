@@ -4,7 +4,7 @@ export default function CompleteSignupPage() {
   return (
     <OfflineDemoNotice
       title="Complete signup"
-      description="Account completion is not part of the static CypherSec mock. Use the landing page or /login to explore the POC dashboards."
+      description="Finish setting up your account from the invitation email, or return home and sign in if you already have access."
     />
   );
 }

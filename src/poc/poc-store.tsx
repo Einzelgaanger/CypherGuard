@@ -165,14 +165,14 @@ export function PocStoreProvider({ children }: { children: ReactNode }) {
     addAlert({
       severity: "critical",
       title: "Emergency broadcast",
-      description: "Guard triggered emergency alert — all stations notified (POC).",
+      description: "Guard triggered emergency alert — all stations notified.",
       type: "security",
     });
     addAudit({
       actor: "Daniel Kamau",
       action: "emergency_broadcast",
       entity: "Estate",
-      details: "POC simulation",
+      details: "Estate-wide broadcast",
     });
   }, [addAlert, addAudit]);
 

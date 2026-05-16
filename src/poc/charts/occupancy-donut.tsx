@@ -30,7 +30,7 @@ export function OccupancyDonut({
             stroke="none"
           >
             <Cell fill="var(--accent)" />
-            <Cell fill="#e8dfd2" />
+            <Cell fill="var(--accent-pale)" />
           </Pie>
           <Tooltip
             contentStyle={{

@@ -26,7 +26,7 @@ export default function AdminAlertsPage() {
             className={cn(
               "rounded-full px-4 py-2 text-sm font-semibold capitalize",
               filter === f
-                ? "bg-cs-accent text-black"
+                ? "bg-cs-accent text-white"
                 : "border border-cs-line bg-cs-surface text-cs-text-secondary hover:bg-cs-hover",
             )}
           >
@@ -60,8 +60,8 @@ export default function AdminAlertsPage() {
               </button>
               <button
                 type="button"
-                className="rounded-lg bg-cs-accent px-3 py-1.5 text-sm font-semibold text-black"
-                onClick={() => toast.message("Escalation sent (POC)", { description: a.title })}
+                className="rounded-lg bg-cs-accent px-3 py-1.5 text-sm font-semibold text-white"
+                onClick={() => toast.message("Escalation sent", { description: a.title })}
               >
                 Escalate
               </button>

@@ -6,8 +6,8 @@
 
 .homestead-pattern {
   background-color: var(--bg-base);
-  background-image: radial-gradient(1200px 480px at 50% -10%, rgba(224, 242, 254, 0.85) 0%, transparent 55%),
-    radial-gradient(800px 400px at 100% 100%, rgba(224, 231, 255, 0.5) 0%, transparent 45%);
+  background-image: radial-gradient(1200px 480px at 50% -10%, rgba(207, 232, 216, 0.9) 0%, transparent 55%),
+    radial-gradient(800px 400px at 100% 100%, rgba(220, 239, 228, 0.65) 0%, transparent 45%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -68,19 +68,19 @@
     --card-foreground: 28 25% 18%;
     --popover: 40 40% 99%;
     --popover-foreground: 28 25% 18%;
-    --primary: 24 55% 42%;
-    --primary-foreground: 40 33% 98%;
-    --secondary: 35 30% 92%;
-    --secondary-foreground: 28 25% 22%;
-    --muted: 35 24% 90%;
-    --muted-foreground: 28 12% 42%;
-    --accent: 142 28% 40%;
-    --accent-foreground: 40 33% 98%;
+    --primary: 145 58% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 140 25% 92%;
+    --secondary-foreground: 150 10% 28%;
+    --muted: 140 20% 92%;
+    --muted-foreground: 150 8% 42%;
+    --accent: 145 58% 38%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 98%;
     --border: 32 20% 88%;
     --input: 32 20% 88%;
-    --ring: 24 55% 42%;
+    --ring: 145 58% 38%;
     --chart-1: 24 60% 52%;
     --chart-2: 142 35% 38%;
     --chart-3: 38 45% 55%;
@@ -198,25 +198,28 @@
   }
 }
 
-/* Bright app shell — high contrast, crisp accents */
+/* App shell — ARCHVIZ-aligned mint & emerald (guard, tenant, admin) */
 html.cyphersec-ui {
   color-scheme: light;
-  --bg-base: #f0f9ff;
+  --bg-base: #f0f7f3;
   --bg-surface: #ffffff;
-  --bg-elevated: #f8fafc;
-  --bg-hover: #e0f2fe;
-  --accent: #0284c7;
-  --accent-dim: rgba(2, 132, 199, 0.12);
-  --accent-glow: rgba(14, 165, 233, 0.35);
-  --status-green: #059669;
-  --status-amber: #d97706;
+  --bg-elevated: #f4faf7;
+  --bg-hover: #e8f3ec;
+  --accent: #2a9d55;
+  --accent-hover: #238a4a;
+  --accent-dim: rgba(42, 157, 85, 0.14);
+  --accent-glow: rgba(42, 157, 85, 0.32);
+  --accent-pale: #cfe8d8;
+  --status-green: #2a9d55;
+  --status-amber: #c4841d;
   --status-red: #dc2626;
-  --status-blue: #2563eb;
-  --status-purple: #7c3aed;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --border-subtle: #e2e8f0;
+  --status-blue: #3d7a9e;
+  --status-purple: #6b5b95;
+  --text-primary: #141816;
+  --text-secondary: #5f6f66;
+  --text-muted: #8fa396;
+  --border-subtle: #dcefe4;
+  --card-dark: #1a1f1c;
 }
 
 html.cyphersec-ui body {
@@ -227,4 +230,25 @@ html.cyphersec-ui body {
 
 html.cyphersec-ui a {
   text-decoration: none;
+}
+
+/* Landing — same tokens as app shell */
+.landing-archviz {
+  --landing-bg: var(--bg-base);
+  --landing-bg-blob: #dcefe4;
+  --landing-ink: var(--text-primary);
+  --landing-muted: var(--text-secondary);
+  --landing-green: var(--accent);
+  --landing-green-hover: var(--accent-hover);
+  --landing-green-soft: #8fb89e;
+  --landing-green-pale: var(--accent-pale);
+  --landing-card-dark: var(--card-dark);
+  background-color: var(--landing-bg);
+  color: var(--landing-ink);
+}
+
+@layer components {
+  .cs-btn-accent {
+    @apply bg-cs-accent font-semibold text-white shadow-[0_8px_24px_-8px_rgba(42,157,85,0.4)] transition hover:brightness-105;
+  }
 }

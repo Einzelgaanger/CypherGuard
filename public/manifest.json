@@ -4,14 +4,21 @@
   "description": "Digital visitor management system for gated estates",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#faf7f2",
-  "theme_color": "#c65d3a",
+  "background_color": "#f0f7f3",
+  "theme_color": "#2a9d55",
   "orientation": "any",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/x-icon"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["security", "business", "productivity"],

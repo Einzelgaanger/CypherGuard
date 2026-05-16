@@ -10,24 +10,26 @@ export default function TenantDashboardPage() {
   const { user } = usePocAuth();
   const { estate, tenantInvites, activeVisits } = usePocStore();
   const unit = user?.unit ?? "—";
-  const upcoming = tenantInvites.filter((i) => i.status === "upcoming").slice(0, 3);
+  const upcoming = tenantInvites
+    .filter((i) => i.tenantUnit === unit && i.status === "upcoming")
+    .slice(0, 8);
   const onSite = activeVisits.filter((v) => v.unit === unit);
 
   return (
     <>
       <PocPageHeader title="Dashboard" />
-      <section className="mb-8 flex flex-col gap-4 rounded-2xl border border-cs-line bg-gradient-to-br from-cs-surface to-[#0f1530] p-8 sm:flex-row sm:items-center sm:justify-between">
+      <section className="mb-8 flex flex-col gap-4 rounded-2xl border border-cs-line bg-[var(--card-dark)] p-8 text-white shadow-[0_20px_50px_-24px_rgba(20,24,22,0.35)] sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-display text-2xl font-bold">
             Good morning, {user?.name?.split(" ")[0] ?? "Resident"}.
           </p>
-          <p className="mt-1 text-sm text-cs-text-secondary">
+          <p className="mt-1 text-sm text-white/75">
             Unit {unit} · {estate.name}
           </p>
         </div>
         <Link
           href="/tenant/pre-register"
-          className="inline-flex justify-center rounded-lg bg-cs-accent px-5 py-3 text-center text-sm font-semibold text-black shadow-[0_4px_16px_rgba(0,212,255,0.25)]"
+          className="inline-flex justify-center rounded-lg bg-cs-accent px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_4px_16px_rgba(42,157,85,0.28)]"
         >
           Pre-register a visitor
         </Link>

@@ -4,7 +4,7 @@ export default function MigrationPage() {
   return (
     <OfflineDemoNotice
       title="Data migration"
-      description="Migration tools require a live backend. This repository is running as a static UI demo only."
+      description="Migration tools are available when the estate backend is connected. Contact your administrator for access."
     />
   );
 }

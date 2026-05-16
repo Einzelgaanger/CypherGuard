@@ -17,7 +17,8 @@ export type ActiveVisit = {
   phone: string;
   unit: string;
   tenantName: string;
-  photoUrl: string;
+  /** Optional; UI uses initials avatar when omitted. */
+  photoUrl?: string;
   checkedInAt: number;
   expectedOutAt: number;
   purpose: string;
