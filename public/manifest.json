@@ -4,9 +4,9 @@
   "description": "Digital visitor management system for gated estates",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
-  "orientation": "portrait",
+  "background_color": "#faf7f2",
+  "theme_color": "#c65d3a",
+  "orientation": "any",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -16,4 +16,4 @@
   ],
   "categories": ["security", "business", "productivity"],
   "lang": "en"
-} 
+}

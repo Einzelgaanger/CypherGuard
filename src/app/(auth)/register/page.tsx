@@ -1,21 +1,10 @@
-"use client";
-
-import { SelfRegistrationForm } from '@/components/auth/SelfRegistrationForm';
-import { AppLayout } from '@/components/layout/AppLayout';
+import { OfflineDemoNotice } from "@/components/demo/OfflineDemoNotice";
 
 export default function RegisterPage() {
   return (
-    <AppLayout>
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-          <p className="text-gray-600 mt-2">
-            Request access to the CypherSec Check-In system. Your request will be reviewed by an administrator.
-          </p>
-        </div>
-
-        <SelfRegistrationForm />
-      </div>
-    </AppLayout>
+    <OfflineDemoNotice
+      title="Request registration"
+      description="Self-registration is not wired in the static demo. Explore the POC with mock role entry from the home page or /login."
+    />
   );
-} 
+}

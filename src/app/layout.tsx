@@ -1,18 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ConvexClientProvider } from "./ConvexClientProvider";
-import { DebugMenu } from "@/components/debug/DebugMenu";
+import { PocProviders } from "@/poc/PocProviders";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const fontDisplay = Outfit({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
+  adjustFontFallback: true,
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const fontSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+  adjustFontFallback: true,
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500"],
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -29,9 +41,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: "#3b82f6",
+  maximumScale: 5,
+  themeColor: "#f0f9ff",
 };
 
 export default function RootLayout({
@@ -40,14 +51,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ConvexClientProvider>
-          {children}
-          <DebugMenu />
-        </ConvexClientProvider>
+    <html
+      lang="en"
+      className={`cyphersec-ui ${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable}`}
+    >
+      <body className="min-h-screen font-sans antialiased">
+        <PocProviders>{children}</PocProviders>
       </body>
     </html>
   );

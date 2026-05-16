@@ -1,50 +1,47 @@
-import { useState, useEffect } from 'react';
-import { useAuthActions } from "@convex-dev/auth/react";
-import { useQuery } from 'convex/react';
-import { api } from '../../../convex/_generated/api';
+import { useCallback, useEffect, useState } from "react";
+
+type DevUserShape = {
+  id?: string;
+  email?: string;
+  role?: string;
+  isAuthenticated?: boolean;
+};
 
 export const useAuth = () => {
-  const { signIn, signOut } = useAuthActions();
-  const convexUser = useQuery(api.auth.currentUser);
-  const [devUser, setDevUser] = useState<any>(null);
+  const [devUser, setDevUser] = useState<DevUserShape | null>(null);
 
-  // Check for development auth state
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedDevUser = localStorage.getItem('dev_user');
-      if (storedDevUser) {
-        setDevUser(JSON.parse(storedDevUser));
-      }
+    if (typeof window === "undefined") return;
+    const stored = localStorage.getItem("dev_user");
+    if (!stored) return;
+    try {
+      setDevUser(JSON.parse(stored) as DevUserShape);
+    } catch {
+      localStorage.removeItem("dev_user");
     }
   }, []);
 
-  // Use dev user if available, otherwise use Convex auth user
-  const user = devUser || convexUser;
-
-  const login = async (email: string, password: string) => {
-    try {
-      await signIn("password", { email, password });
-      return true;
-    } catch (error) {
-      throw error;
-    }
+  const login = async (_email: string, _password: string) => {
+    throw new Error(
+      "Server login is disabled in this static demo. Use the home page or /login to enter the mock POC.",
+    );
   };
 
-  const logout = async () => {
-    // Clear dev auth if it exists
-    if (devUser) {
-      localStorage.removeItem('dev_user');
-      setDevUser(null);
-    } else {
-      await signOut();
-    }
+  const requestOTP = async (_phone: string, _purpose: string): Promise<void> => {
+    throw new Error("Phone OTP is not available in this static demo.");
   };
+
+  const logout = useCallback(async () => {
+    localStorage.removeItem("dev_user");
+    setDevUser(null);
+  }, []);
 
   return {
-    user,
-    isLoading: !devUser && convexUser === undefined,
-    isAuthenticated: !!user,
+    user: devUser,
+    isLoading: false,
+    isAuthenticated: !!devUser,
     login,
+    requestOTP,
     logout,
   };
-}; 
+};
